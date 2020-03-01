@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    new page
-    <form class="" action="/travelguide" method="POST">
-      <label for="title">Title</label>
-      <input type="text" name="title" placeholder="Title">
-      <label for="image">Image</label>
-<input type="text" name="image" placeholder="Url">
-      <label for="description">Entry</label>
-      <textarea name="description" rows="8" cols="80"></textarea>
-<input type="submit" name="" value="Create Post"/>
-    </form>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <nav>
+    <%- include ('./partials/nav.ejs') %>
+  </nav>
+  new page
+  <form class="" action="/travelguide" method="POST">
+    <label for="title">Title</label>
+    <input type="text" name="title" placeholder="Title">
+    <label for="image">Image</label>
+    <input type="text" name="image" placeholder="Url">
+    <label for="description">Entry</label>
+    <textarea name="description" rows="8" cols="80"></textarea>
+    <input type="submit" name="" value="Create Post" />
+  </form>
+
+      <a href="/travelguide"> back to guides</a>
+</body>
+
 </html>
