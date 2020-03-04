@@ -19,7 +19,17 @@ posts.get('/', (req, res) => {
   })
 })
 
+posts.get('/search/:text', (req, res) => {
 
+  Post.find({$text: {$search:`${req.params.text}`}}, (err, allPosts) => {
+    // res.send(allPosts);
+    res.render('search.ejs', {
+      posts: allPosts,
+      currentUser: req.session.currentUser,
+      tabTitle: 'All Guides'
+    })
+  })
+})
 
 // new
 posts.get('/new',  (req, res) => {
@@ -81,6 +91,10 @@ Post.create([{
 
 
 
+//
+
+
+
 /*Funtional Routes*/
 
 
@@ -90,12 +104,24 @@ Post.create([{
 
 // Create
 
+
+
 posts.post('/', (req, res) => {
 
   Post.create(req.body, (err, allPosts) => {
     res.redirect('/travelguide')
   })
 })
+
+
+// search
+posts.post('/search', (req, res) => {
+
+  // Post.create(req.body, (err, allPosts) => {
+    res.resend(`${req.body}`)
+  // })
+})
+
 
 
 

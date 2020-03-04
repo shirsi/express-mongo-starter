@@ -1,5 +1,5 @@
 <ul class="right">
-  <li><a href="/captainlogs/new">Create a new log</a></li>
+  <li><a href="/travelguide/new">Create a new post</a></li>
   <% if (currentUser) { %>
   <li>Welcome <%= currentUser.username %></li>
   <li>
@@ -12,3 +12,8 @@
   <li><a href="/sessions/new">Log In</a></li>
   <% } %>
 </ul>
+
+<form class="" action='/travelguide/search'method="
+POST">
+  <input type="text" name="search">
+   <input type="submit" value="submit" /></form>
