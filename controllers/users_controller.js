@@ -4,23 +4,24 @@ const users = express.Router()
 const User = require('../models/users.js')
 
 users.get('/new', (req, res) => {
-  res.render('users/new.ejs',
-{tabTitle: `Signup`})
+  res.render('users/new.ejs', {
+    tabTitle: `Signup`
+  })
 })
 
 
 users.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
 
-  User.create(req.body , (err, createdUser) => {
+  User.create(req.body, (err, createdUser) => {
     if (err) {
-        console.log(err)
-      } else {
-        console.log('user is created', createdUser)
-  req.session.currentUser = createdUser
-  res.redirect('/travelguide')
+      console.log(err)
+    } else {
+      console.log('user is created', createdUser)
+      req.session.currentUser = createdUser
+      res.redirect('/travelguide')
 
-      }
+    }
 
 
   })
@@ -34,4 +35,4 @@ users.post('/', (req, res) => {
 
 
 
-module.exports= users
+module.exports = users

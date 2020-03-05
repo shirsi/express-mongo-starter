@@ -9,71 +9,70 @@
 
   <div class="nav">
 
-  <%- include ('./partials/nav.ejs') %>
-</div>
-
-
-    <div class="main">
-
-  <div class="show-info">
-    <h1> <%=post.title%></h1>
-
-  <img src="<%=post.image%>" class="rounded mx-auto d-block" alt="" width="500px" height="300px">
-  <div class="description">
-
-    <h3> <%=post.title%></h3>
-  <p><%=post.description%></p>
-  </div>
-<iframe  src="<%=post.video%>" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div class="likes">
-  <% if (post.likes === 0 ) { %>
-    <form class="" action="/travelguide/<%=post.title%>/update?_method=PUT" method="POST">
-<input type="submit" name="" value="Like">
-
-  </form
-  <% } else { %>
-  <h5><%=post.likes%> Likes</h5>
-    <form class="" action="/travelguide/<%=post.title%>/update?_method=PUT" method="POST">
-<input type="submit" name="" value="Like">
-
-  </form>
-  <% } %>
+    <%- include ('./partials/nav.ejs') %>
   </div>
 
 
+  <div class="main">
 
-<h4 class="title-comment">Comments</h4>
-<div class="comments form-group row" >
-<% if (currentUser) { %>
-<form class="" action="/travelguide/<%=post.title%>" method="POST">
-<label for="user"></label>
-<input type="user" name="user" value="<%= currentUser.username%>">
-<label for="comment">Comment</label>
-<input type="comment" name="comment">
+    <div class="show-info">
+      <h1> <%=post.title%></h1>
 
-<input type="submit" name="" value="Post" />
-</form>
-<% } else { %>
-<form class="" action="/travelguide/<%=post.title%>" method="POST">
-  <label for="comment">Comment</label>
-  <input type="comment" name="comment">
-  <input type="submit" name="" value="Post" />
-</form>
-  <% } %>
-    </div>
-<div class="comment-section">
-    <% for(let i = 0; i < post.comment.length; i++){%>
+      <img src="<%=post.image%>" class="rounded mx-auto d-block" alt="" width="500px" height="300px">
+      <div class="description">
+
+        <h3> <%=post.title%></h3>
+        <p><%=post.description%></p>
+      </div>
+      <iframe src="<%=post.video%>" class="rounded mx-auto d-block" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="likes">
+        <% if (post.likes === 0 ) { %>
+        <form class="" action="/travelguide/<%=post.title%>/update?_method=PUT" method="POST">
+          <input type="submit" name="" value="Like">
+
+        </form <% } else { %> <h5><%=post.likes%> Likes</h5>
+        <form class="" action="/travelguide/<%=post.title%>/update?_method=PUT" method="POST">
+          <input type="submit" name="" value="Like">
+
+        </form>
+        <% } %>
+      </div>
+
+
+
+      <h4 class="title-comment">Comments</h4>
+      <div class="comments form-group row">
+        <% if (currentUser) { %>
+        <form class="" action="/travelguide/<%=post.title%>" method="POST">
+          <select class="" name="user">
+            <option value="<%= currentUser.username%>"><%= currentUser.username%></option>
+          </select>
+          <label for="comment">Comment</label>
+          <input type="comment" name="comment">
+
+          <input type="submit" name="" value="Post" />
+        </form>
+        <% } else { %>
+        <form class="" action="/travelguide/<%=post.title%>" method="POST">
+          <label for="comment">Comment</label>
+          <input type="comment" name="comment">
+          <input type="submit" name="" value="Post" />
+        </form>
+        <% } %>
+      </div>
+      <div class="comment-section">
+        <% for(let i = 0; i < post.comment.length; i++){%>
         <div class="comment-posted">
           <h5><%=post.comment[i].user%></h5>
-  <p><%=post.comment[i].comments%><p>
+          <p><%=post.comment[i].comments%><p>
 
-  </div>
-  <%}%>
+        </div>
+        <%}%>
   </div>
   <div class="">
     <a href="/travelguide/<%=post.title%>/edit"><button type="button" name="button">Edit</button> </a>
-  </div>
-</div>
+      </div>
+    </div>
 </body>
 
 </html>

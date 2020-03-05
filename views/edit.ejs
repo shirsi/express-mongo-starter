@@ -9,38 +9,38 @@
 
   <%- include ('./partials/nav.ejs') %>
 
-<h1 class="edit"><%=post.title%></h1>
-<div class="main-edit mx-auto" style="width: 400px;">
-  <form class="" action="/travelguide/<%=post.title%>?_method=PUT" method="POST">
-    <div class="form-group">
-
-    <label for="title">Title</label>
-    <input type="text" class="form-control" name="title" value="<%=post.title%>">
-  </div>
-    <div class="form-group">
-
-    <label for="continent">Continent</label>
-    <input type="text" class="form-control" name="continent" value="<%=post.continent%>">
-  </div>
-    <div class="form-group">
-    <label for="image">Image</label>
-    <input type="text" class="form-control" name="image" value="<%=post.image%>">
-</div>
+  <h1 class="edit"><%=post.title%></h1>
+  <div class="main-edit mx-auto" style="width: 400px;">
+    <form class="" action="/travelguide/<%=post.title%>?_method=PUT" method="POST">
       <div class="form-group">
-    <label for="video">Video</label>
-    <input type="text" class="form-control" name="video" value="<%=post.video%>">
-  </div>
+
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" value="<%=post.title%>">
+      </div>
       <div class="form-group">
-    <label for="description">Description</label>
-    <textarea name="description" rows="8" cols="80"><%=post.description%></textarea>
-    </div>
 
-    <input type="submit" name="" value="Edit Post" />
+        <label for="continent">Continent</label>
+        <input type="text" class="form-control" name="continent" value="<%=post.continent%>">
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" class="form-control" name="image" value="<%=post.image%>">
+      </div>
+      <div class="form-group">
+        <label for="video">Video</label>
+        <input type="text" class="form-control" name="video" value="<%=post.video%>">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" rows="8" cols="80"><%=post.description%></textarea>
+      </div>
 
-  </form>
+      <input type="submit" name="" value="Edit Post" />
 
-  <a href="/travelguide/<%=post.title%>"><button type="button" name="button" class="back">Back</button> </a>
-</div>
+    </form>
+
+    <a href="/travelguide/<%=post.title%>"><button type="button" name="button" class="back">Back</button> </a>
+  </div>
 </body>
 
 </html>
