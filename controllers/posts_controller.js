@@ -50,7 +50,8 @@ posts.get('/search/:text', (req, res) => {
 // new
 posts.get('/new', isAuthenticated, (req, res) => {
   res.render('new.ejs', {
-    currentUser: req.session.currentUser
+    currentUser: req.session.currentUser,
+    tabTitle: "New Blog"
   })
 })
 

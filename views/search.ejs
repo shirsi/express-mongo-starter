@@ -28,11 +28,12 @@
       </a>
 
       <div class="">
-
+  <% if (currentUser) { %>
         <a href="/travelguide/<%=posts[i].title%>/edit"><button type="button" name="button">Edit</button> </a>
         <form class="" action="/travelguide/<%=posts[i].title%>?_method=DELETE" method="POST">
           <input type="submit" value="Delete"></form>
       </div>
+      <%}%>
       <%}%>
   </div>
   </body>

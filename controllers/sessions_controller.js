@@ -22,7 +22,7 @@ sessions.post('/', (req, res) => {
       res.send('oops the db had a problem')
 
     } else if (!foundUser) {
-      res.send('<a href="/">Sorry, no user found</a>')
+      res.send('<a href="/sessions/new">Sorry, no user found</a>')
 
     } else {
       if (bcrypt.compareSync(req.body.password, foundUser.password)) {
@@ -30,7 +30,7 @@ sessions.post('/', (req, res) => {
         res.redirect('/travelguide')
       } else {
 
-        res.send('<a href="/"> password does not match</a>')
+        res.send('<a href="/sessions/new"> password does not match</a>')
       }
     }
   })
