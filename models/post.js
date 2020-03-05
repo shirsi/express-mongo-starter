@@ -6,8 +6,8 @@ const Schema =  mongoose.Schema
    image: String ,
    description: String,
    video: String,
-   comment: [String],
-   likes: Number
+   comment: [{user: String , comments: String}],
+   likes:{ type:Number, default: 0}
 
  }, {
    timestamped: Date.now()

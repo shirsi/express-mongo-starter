@@ -1,3 +1,13 @@
+
+/* ================ */
+/*      General       */
+/* ================ */
+.main{
+  margin: 0 1em;
+}
+
+
+
 /* ================ */
 /*      Nav       */
 /* ================ */
@@ -52,31 +62,74 @@ padding: 0.5em;
 /* ================ */
 .main-info img{
 height: 30vh;
+margin: 1em 0;
 }
 .main-info img:hover {
  transform: scale(1.05);
  overflow: hidden;
 }
 
+.main-info input {
+  margin: 1em 0;
+}
 
 
 
 /* ================ */
 /*    show       */
 /* ================ */
-h1 {
+h1 , h3 {
   text-align: center;
 }
 img {
-  align-items: center;
   height: 30vh;
   width: 50vw;
 
 }
  iframe {
    height: 30vh;
-   width: 70vw;
+   width: 50vw;
  }
+.description {
+  margin: 2em 0;
+}
+
+.likes {
+  margin: 2em 0;
+
+}
+.comment-posted{
+    background-color: rgb(243,246,248);
+    margin:0.5em;
+    padding: 0.5em;
+
+
+}
+.comments {
+  margin-top: 1em;
+display: flex;
+justify-content: center;
+}
+.comments input{
+  margin-top: 1em;
+   box-sizing: border-box;
+}
+.comments input[type=submit]{
+  margin-top: 1em;
+   box-sizing: border-box;
+}
+.comments input[type=submit]:hover{
+  margin-top: 1em;
+   box-sizing: border-box;
+   background-color: rgb(220,230,230);
+}
+
+.comment-section{
+  padding: 1em;
+}
+.title-comment{
+  text-align: center;
+}
 
  /* ================ */
  /*   user      */
@@ -121,7 +174,13 @@ img {
 
 }
 .main-edit input {
-  width: 100%;
+  width: 80%;
+   margin: 10px 0;
+   padding: 10px;
+   box-sizing: border-box;
+}
+ .back{
+  width: 80%;
    margin: 10px 0;
    padding: 10px;
    box-sizing: border-box;
