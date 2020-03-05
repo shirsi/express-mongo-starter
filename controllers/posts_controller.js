@@ -70,7 +70,8 @@ posts.get('/setup/seed', (req, res) => {
 Post.create([{
   title:'Vietnam Day 1',
   image: 'https://www.visa-vietnam.org/media/k2/items/cache/cb814f6646368a9340b7ed30aa1a9ed7_XL.jpg',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  comment: 'this is amazing'
 },{
   title:'Vietnam Day 2',
   image: 'https://charmingtraveldestinations.com/wp-content/uploads/2017/05/Golden-Bridge-Banan-Hill-DaNang-Vietnam.jpg',
@@ -85,9 +86,10 @@ Post.create([{
   description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 },
 
-])
+]), (err, foundPost) => {
+  res.redirect('/travelguide')
 
-})
+}})
 
 
 
@@ -135,10 +137,35 @@ posts.put('/:title', (req, res) => {
 
 })
 
+// Comments
 
+posts.post('/:title', (req, res) => {
+  Post.findOneAndUpdate({title: req.params.title}, {$push:{comment: req.body.comment}}, (err, updatedPost) => {
+console.log(err);
+    res.redirect(`/travelguide/${req.params.title}`)
+  })
 
+})
+posts.put('/:title/update', (req, res) => {
+  // console.log(req.params);
+
+  Post.findOneAndUpdate({title:req.params.title},{ $inc: { likes: 1 } }, (err, updatedItem ) => {
+    console.log(err);
+  res.redirect(`/travelguide/${req.params.title}`)
+  })
+})
 
 // Delete
+posts.delete('/:title/:comment', (req, res) => {
+  console.log(req.params.comments);
+  Post.findOneAndRemove({title: req.params.title},
+   {$pull:{comment: {$in: req.params.comment}}}, (err, updatedPost) => {
+console.log(err);
+    res.redirect(`/travelguide/${req.params.title}`)
+  })
+
+})
+
 
 posts.delete('/:title', (req, res) => {
   Post.findOneAndRemove({title: req.params.title}, req.body , (err, deletedPost) => {
