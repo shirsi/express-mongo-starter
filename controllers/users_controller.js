@@ -16,10 +16,21 @@ users.post('/', (req, res) => {
         console.log(err)
       } else {
         console.log('user is created', createdUser)
-        res.redirect('/travelguide')
+  req.session.currentUser = createdUser
+  res.redirect('/travelguide')
+
       }
+
+
   })
 })
+
+
+
+
+
+
+
 
 
 module.exports= users

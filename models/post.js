@@ -5,8 +5,8 @@ const Schema =  mongoose.Schema
    title: String,
    image: String ,
    description: String,
+   video: String,
    comment: [String],
-   // {comments:Array, likes: Number},
    likes: Number
 
  }, {
