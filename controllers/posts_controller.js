@@ -30,12 +30,12 @@ posts.get('/', (req, res) => {
 posts.get('/search/:text', (req, res) => {
 
   Post.find({$text: {$search:`${req.params.text}`}}, (err, allPosts) => {
-    // res.send(allPosts);
-    res.render('search.ejs', {
-      posts: allPosts,
-      currentUser: req.session.currentUser,
-      tabTitle: `${req.params.text}`
-    })
+    res.send(allPosts);
+    // res.render('search.ejs', {
+    //   posts: allPosts,
+    //   currentUser: req.session.currentUser,
+    //   tabTitle: `${req.params.text}`
+    // })
   })
 })
 
