@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const postSchema = new Schema({
   title: String,
   image: String,
+  continent: String,
   description: String,
   video: String,
   comment: [{

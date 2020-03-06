@@ -13,12 +13,22 @@
 <h1 class="edit">New Blog!</h1>
   <div class="main-edit mx-auto" style="width: 400px;">
   <form class="" action="/travelguide" method="POST">
+
     <div class="form-group">
 
       <label for="title">Title</label>
       <input type="text" class="form-control" name="title">
     </div>
 
+<div class="form-group">
+  <label for="continent">Continent</label>
+  <select class="form-control" name="continent">
+    <option value="">Africa</option>
+      <option value="">Asia</option>
+        <option value="">Australia</option>
+          <option value="">Europe</option>
+  </select>
+</div>
     <div class="form-group">
       <label for="image">Image</label>
       <input type="text" class="form-control" name="image" >
