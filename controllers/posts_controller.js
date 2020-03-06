@@ -181,7 +181,7 @@ posts.put('/:title', (req, res) => {
   Post.findOneAndUpdate({
     title: req.params.title
   }, req.body, (err, updatedPost) => {
-    res.redirect(`/travelguide/${req.params.title}`)
+    res.redirect(`/travelguide/${req.body.title}`)
   })
 
 })
